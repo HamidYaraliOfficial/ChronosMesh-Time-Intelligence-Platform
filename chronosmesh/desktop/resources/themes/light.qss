@@ -1,0 +1,10 @@
+/* ChronosMesh — Light Theme */
+* { font-family: "Segoe UI", sans-serif; font-size: 10pt; }
+QMainWindow, QWidget { background-color: #FFFFFF; color: #111111; }
+QListWidget#sidebarList { background-color: #F7F7F8; border: none; border-right: 1px solid #EAEAEA; padding: 8px; }
+QListWidget#sidebarList::item { padding: 10px 12px; border-radius: 6px; margin: 2px 4px; }
+QListWidget#sidebarList::item:selected { background-color: #EEF1FF; color: #4338CA; }
+QPushButton { background-color: #F2F2F3; border: 1px solid #DCDCDC; border-radius: 6px; padding: 6px 14px; }
+QPushButton#primaryButton { background-color: #4338CA; color: white; border: none; }
+QGroupBox { border: 1px solid #E5E5E5; border-radius: 8px; margin-top: 12px; padding-top: 8px; }
+QLineEdit, QTimeEdit, QDateEdit { background: white; border: 1px solid #DCDCDC; border-radius: 6px; padding: 4px 8px; }

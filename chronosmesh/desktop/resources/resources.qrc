@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="/themes">
+    <file>themes/windows11.qss</file>
+    <file>themes/light.qss</file>
+    <file>themes/dark.qss</file>
+    <file>themes/blue.qss</file>
+    <file>themes/red.qss</file>
+  </qresource>
+</RCC>

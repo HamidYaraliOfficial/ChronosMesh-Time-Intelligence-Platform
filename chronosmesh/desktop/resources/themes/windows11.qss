@@ -1,0 +1,16 @@
+/* ChronosMesh — Windows 11 Default Theme
+   Mica-inspired neutral palette with rounded corners (Mica/Fluent look). */
+* { font-family: "Segoe UI Variable", "Segoe UI", sans-serif; font-size: 10pt; }
+QMainWindow, QWidget { background-color: #F3F3F3; color: #1B1B1B; }
+QListWidget#sidebarList { background-color: #FBFBFB; border: none; border-right: 1px solid #E5E5E5; padding: 8px; }
+QListWidget#sidebarList::item { padding: 10px 12px; border-radius: 6px; margin: 2px 4px; }
+QListWidget#sidebarList::item:selected { background-color: #E8ECFB; color: #2B4FD8; }
+QListWidget#sidebarList::item:hover:!selected { background-color: #EFEFEF; }
+QPushButton { background-color: #FFFFFF; border: 1px solid #D6D6D6; border-radius: 6px; padding: 6px 14px; }
+QPushButton:hover { background-color: #F5F5F5; }
+QPushButton#primaryButton { background-color: #2B4FD8; color: white; border: none; }
+QPushButton#primaryButton:hover { background-color: #2543BE; }
+QGroupBox { border: 1px solid #E0E0E0; border-radius: 8px; margin-top: 12px; padding-top: 8px; }
+QLineEdit, QTimeEdit, QDateEdit { background: white; border: 1px solid #D6D6D6; border-radius: 6px; padding: 4px 8px; }
+QMenuBar { background-color: #FBFBFB; border-bottom: 1px solid #E5E5E5; }
+QStatusBar { background-color: #FBFBFB; border-top: 1px solid #E5E5E5; }
