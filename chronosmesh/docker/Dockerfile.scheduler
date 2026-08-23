@@ -1,0 +1,13 @@
+# ChronosMesh — Go Scheduler Engine service
+FROM golang:1.22-bookworm AS builder
+WORKDIR /app
+COPY scheduler/go.mod scheduler/go.sum ./
+RUN go mod download
+COPY scheduler/ .
+RUN CGO_ENABLED=0 GOOS=linux go build -o /chronosmesh-scheduler ./cmd/scheduler
+
+FROM gcr.io/distroless/static-debian12
+COPY --from=builder /chronosmesh-scheduler /chronosmesh-scheduler
+ENV SCHEDULER_PORT=8081
+EXPOSE 8081
+ENTRYPOINT ["/chronosmesh-scheduler"]

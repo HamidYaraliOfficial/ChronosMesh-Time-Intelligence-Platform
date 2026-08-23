@@ -1,0 +1,18 @@
+# ChronosMesh — C# / ASP.NET Core backend API
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY backend/ChronosMesh.sln ./
+COPY backend/src/ChronosMesh.Domain/ChronosMesh.Domain.csproj src/ChronosMesh.Domain/
+COPY backend/src/ChronosMesh.Application/ChronosMesh.Application.csproj src/ChronosMesh.Application/
+COPY backend/src/ChronosMesh.Infrastructure/ChronosMesh.Infrastructure.csproj src/ChronosMesh.Infrastructure/
+COPY backend/src/ChronosMesh.Api/ChronosMesh.Api.csproj src/ChronosMesh.Api/
+RUN dotnet restore src/ChronosMesh.Api/ChronosMesh.Api.csproj
+COPY backend/src/ ./src/
+RUN dotnet publish src/ChronosMesh.Api/ChronosMesh.Api.csproj -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app/publish .
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
+ENTRYPOINT ["dotnet", "ChronosMesh.Api.dll"]

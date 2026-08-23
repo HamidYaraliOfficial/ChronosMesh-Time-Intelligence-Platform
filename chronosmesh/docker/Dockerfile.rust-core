@@ -1,0 +1,13 @@
+# ChronosMesh — Rust Secure Core / Time Engine service
+FROM rust:1.75-slim AS builder
+WORKDIR /app
+COPY rust-core/Cargo.toml ./Cargo.toml
+COPY rust-core/src ./src
+RUN cargo build --release --bin chronosmesh-core-server
+
+FROM debian:bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /app/target/release/chronosmesh-core-server /usr/local/bin/chronosmesh-core-server
+ENV PORT=7301
+EXPOSE 7301
+ENTRYPOINT ["chronosmesh-core-server"]
